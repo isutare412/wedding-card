@@ -185,6 +185,14 @@
 	} satisfies CenterTextData;
 </script>
 
+<svelte:head>
+	<title>{`${PUBLIC_GROOM_NAME}`}•{`${PUBLIC_BRIDE_NAME}`} 청첩장</title>
+	<meta
+		property="description"
+		content="{coupleNames.groom}•{coupleNames.bride} 의 결혼식에 초대합니다."
+	/>
+</svelte:head>
+
 <div class="flex-col">
 	<div>
 		<PhotoHeader
