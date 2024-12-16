@@ -1,5 +1,6 @@
 <script lang="ts">
-	
+	import { isMobile } from '$lib/mobile';
+
 	const {
 		latitude,
 		longitude,
@@ -26,13 +27,16 @@
 		marker.setMap(map);
 	});
 
-	function alertMobile(
+	function onMobileOnlyClick(
 		event: MouseEvent & {
 			currentTarget: EventTarget & HTMLSpanElement;
 		}
 	) {
-		event.preventDefault();
-		alert(`모바일에서만 실행 가능해요 📱`);
+		if (!isMobile()) {
+			event.preventDefault();
+			alert(`모바일에서만 실행 가능해요 📱`);
+			return;
+		}
 	}
 </script>
 
@@ -56,7 +60,7 @@
 			<div class="flex flex-1 justify-center">
 				<div>
 					{#if link.mobileOnly}
-						<a href={link.href} target="_blank" onclick={alertMobile}>
+						<a href={link.href} target="_blank" onclick={onMobileOnlyClick}>
 							{@render mapLinkButton(link.image, link.text)}
 						</a>
 					{:else}
