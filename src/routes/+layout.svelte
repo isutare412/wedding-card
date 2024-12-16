@@ -3,4 +3,6 @@
 	let { children } = $props();
 </script>
 
-{@render children()}
+<main class="mx-auto max-w-3xl">
+	{@render children()}
+</main>
