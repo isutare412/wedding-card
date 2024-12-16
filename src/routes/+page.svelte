@@ -21,6 +21,12 @@
 	import type { PhotoSet } from '$lib/photo';
 	import type { CenterTextData } from '$lib/text';
 
+	const openGraphData = {
+		title: `${PUBLIC_GROOM_NAME} ♥ ${PUBLIC_BRIDE_NAME} 결혼식 ✿'◡'✿`,
+		description: '2025년 3월 30일 낮 12시30분',
+		image: `${PUBLIC_CDN_BASE}/gallery/thumbnail/photo-11.jpg`
+	};
+
 	const photoHeader = {
 		dateNums: [
 			['2', '5'],
@@ -191,6 +197,9 @@
 		property="description"
 		content="{coupleNames.groom}•{coupleNames.bride} 의 결혼식에 초대합니다."
 	/>
+	<meta property="og:title" content={openGraphData.title} />
+	<meta property="og:description" content={openGraphData.description} />
+	<meta property="og:image" content={openGraphData.image} />
 </svelte:head>
 
 <div class="flex-col">
