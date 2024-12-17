@@ -7,6 +7,6 @@
 	let { children } = $props();
 </script>
 
-<main class="mx-auto max-w-3xl">
+<main class="mx-auto max-w-3xl bg-white">
 	{@render children()}
 </main>
