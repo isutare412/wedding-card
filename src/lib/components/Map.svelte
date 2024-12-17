@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_KAKAO_MAP_API_KEY } from '$env/static/public';
 	import { isMobile } from '$lib/mobile';
 
 	const {
@@ -43,7 +44,7 @@
 <svelte:head>
 	<script
 		type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7db66ecac6e0f14bf32e1c42a1afd72a"
+		src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${PUBLIC_KAKAO_MAP_API_KEY}`}
 	></script>
 </svelte:head>
 
