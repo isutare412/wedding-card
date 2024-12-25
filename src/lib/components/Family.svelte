@@ -17,11 +17,9 @@
 </script>
 
 {#snippet relationLine(father: string, mother: string, relation: string, name: string)}
-	<p
-		class="text-center font-serif text-lg font-bold leading-loose opacity-60 md:text-xl md:leading-loose"
-	>
-		<span class="font-extrabold">{father}</span> • <span class="font-extrabold">{mother}</span> 의 {relation}
-		<span class="font-extrabold">{name}</span>
+	<p class="text-center font-serif text-lg leading-loose opacity-60 md:text-xl md:leading-loose">
+		<span class="font-bold">{father}</span> • <span class="font-bold">{mother}</span> 의 {relation}
+		<span class="font-bold">{name}</span>
 	</p>
 {/snippet}
 

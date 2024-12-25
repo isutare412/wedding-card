@@ -160,7 +160,7 @@
 		title: 'LOCATION',
 		paragraphs: [
 			{
-				body: '오시는 길\n아펠가모 반포 LL층 단독홀\n서울 서초구 반포대로 235 효성빌딩 LL층'
+				body: '아펠가모 반포 LL층 단독홀\n서울 서초구 반포대로 235 효성빌딩 LL층'
 			}
 		]
 	} satisfies CenterTextData;
