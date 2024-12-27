@@ -1,15 +1,29 @@
 <script lang="ts">
 	import {
+		PUBLIC_BRIDE_ACCOUNT_NUMBER,
+		PUBLIC_BRIDE_BANK_NAME,
+		PUBLIC_BRIDE_FATHER_ACCOUNT_NUMBER,
+		PUBLIC_BRIDE_FATHER_BANK_NAME,
 		PUBLIC_BRIDE_FATHER_FULL_NAME,
 		PUBLIC_BRIDE_FULL_NAME,
+		PUBLIC_BRIDE_MOTHER_ACCOUNT_NUMBER,
+		PUBLIC_BRIDE_MOTHER_BANK_NAME,
 		PUBLIC_BRIDE_MOTHER_FULL_NAME,
 		PUBLIC_BRIDE_NAME,
 		PUBLIC_CDN_BASE,
+		PUBLIC_GROOM_ACCOUNT_NUMBER,
+		PUBLIC_GROOM_BANK_NAME,
+		PUBLIC_GROOM_FATHER_ACCOUNT_NUMBER,
+		PUBLIC_GROOM_FATHER_BANK_NAME,
 		PUBLIC_GROOM_FATHER_FULL_NAME,
 		PUBLIC_GROOM_FULL_NAME,
+		PUBLIC_GROOM_MOTHER_ACCOUNT_NUMBER,
+		PUBLIC_GROOM_MOTHER_BANK_NAME,
 		PUBLIC_GROOM_MOTHER_FULL_NAME,
 		PUBLIC_GROOM_NAME
 	} from '$env/static/public';
+	import type { AccountData } from '$lib/account';
+	import BankAccount from '$lib/components/BankAccount.svelte';
 	import CenterText from '$lib/components/CenterText.svelte';
 	import CoupleName from '$lib/components/CoupleName.svelte';
 	import Family from '$lib/components/Family.svelte';
@@ -182,6 +196,39 @@
 		]
 	} satisfies CenterTextData;
 
+	const accounts = [
+		{
+			ownerName: `${PUBLIC_GROOM_FULL_NAME}`,
+			bank: `${PUBLIC_GROOM_BANK_NAME}`,
+			number: `${PUBLIC_GROOM_ACCOUNT_NUMBER}`
+		},
+		{
+			ownerName: `${PUBLIC_BRIDE_FULL_NAME}`,
+			bank: `${PUBLIC_BRIDE_BANK_NAME}`,
+			number: `${PUBLIC_BRIDE_ACCOUNT_NUMBER}`
+		},
+		{
+			ownerName: `${PUBLIC_GROOM_FATHER_FULL_NAME}`,
+			bank: `${PUBLIC_GROOM_FATHER_BANK_NAME}`,
+			number: `${PUBLIC_GROOM_FATHER_ACCOUNT_NUMBER}`
+		},
+		{
+			ownerName: `${PUBLIC_GROOM_MOTHER_FULL_NAME}`,
+			bank: `${PUBLIC_GROOM_MOTHER_BANK_NAME}`,
+			number: `${PUBLIC_GROOM_MOTHER_ACCOUNT_NUMBER}`
+		},
+		{
+			ownerName: `${PUBLIC_BRIDE_FATHER_FULL_NAME}`,
+			bank: `${PUBLIC_BRIDE_FATHER_BANK_NAME}`,
+			number: `${PUBLIC_BRIDE_FATHER_ACCOUNT_NUMBER}`
+		},
+		{
+			ownerName: `${PUBLIC_BRIDE_MOTHER_FULL_NAME}`,
+			bank: `${PUBLIC_BRIDE_MOTHER_BANK_NAME}`,
+			number: `${PUBLIC_BRIDE_MOTHER_ACCOUNT_NUMBER}`
+		}
+	] satisfies AccountData[];
+
 	const footerTextData = {
 		paragraphs: [
 			{
@@ -236,6 +283,12 @@
 	</div>
 	<div class="mt-12">
 		<CenterText textData={transportationTextData} />
+	</div>
+	<div class="my-36">
+		<FlowerBand />
+	</div>
+	<div class="my-14">
+		<BankAccount {accounts} />
 	</div>
 	<div class="my-36">
 		<FlowerBand />

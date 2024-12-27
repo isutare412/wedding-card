@@ -7,7 +7,7 @@
 {#snippet titleParagraph(input: { title?: string; body: string })}
 	<div class="flex flex-col space-y-1">
 		{#if input.title !== undefined}
-			<p class="font-bold">{input.title}</p>
+			<p class="font-extrabold">{input.title}</p>
 		{/if}
 		<p>
 			{input.body}
@@ -17,10 +17,10 @@
 
 <div>
 	<div
-		class="flex flex-col space-y-6 whitespace-pre-line px-2 text-center font-serif text-lg font-thin leading-loose opacity-60 md:text-xl md:leading-loose"
+		class="flex flex-col space-y-6 whitespace-pre-line px-2 text-center font-serif leading-loose opacity-60 md:text-xl md:leading-loose"
 	>
 		{#if textData.title !== undefined}
-			<p class="font-bold">{textData.title}</p>
+			<p class="font-extrabold">{textData.title}</p>
 		{/if}
 		{#each textData.paragraphs as paragraph}
 			{@render titleParagraph({ title: paragraph.subTitle, body: paragraph.body })}
