@@ -23,7 +23,7 @@
 	</p>
 {/snippet}
 
-<div class="flex flex-col space-y-6 px-2">
+<div class="flex flex-col space-y-2 px-2">
 	{@render relationLine(groomFather, groomMother, '아들', groom)}
 	{@render relationLine(brideFather, brideMother, '딸', bride)}
 </div>

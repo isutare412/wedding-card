@@ -153,14 +153,6 @@
 		brideMother: `${PUBLIC_BRIDE_MOTHER_FULL_NAME}`
 	};
 
-	const scheduleTextData = {
-		paragraphs: [
-			{
-				body: '2025년 3월 30일 일요일 낮 12시 30분\n아펠가모 반포 LL층 단독홀'
-			}
-		]
-	} satisfies CenterTextData;
-
 	const invitationTextData = {
 		title: 'INVITATION',
 		paragraphs: [
@@ -273,15 +265,12 @@
 		<FlowerBand />
 	</div>
 	<div class="mt-20">
-		<CenterText textData={scheduleTextData} />
-	</div>
-	<div class="mt-16">
 		<CenterText textData={invitationTextData} />
 	</div>
 	<div class="mt-24">
 		<PhotoGallery {photos} />
 	</div>
-	<div class="mt-10">
+	<div class="mt-14">
 		<Family {...familyNames} />
 	</div>
 	<div class="mt-28">
