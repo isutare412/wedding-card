@@ -229,6 +229,15 @@
 		}
 	] satisfies AccountData[];
 
+	const wreathTextData = {
+		paragraphs: [
+			{
+				subTitle: '축하 화환안내',
+				body: '화환은 정중히 사양합니다.\n좋은 마음만 감사히 받겠습니다.'
+			}
+		]
+	} satisfies CenterTextData;
+
 	const footerTextData = {
 		paragraphs: [
 			{
@@ -289,6 +298,9 @@
 	</div>
 	<div class="my-14">
 		<BankAccount {accounts} />
+	</div>
+	<div class="my-32">
+		<CenterText textData={wreathTextData} />
 	</div>
 	<div class="my-36">
 		<FlowerBand />
