@@ -48,7 +48,7 @@
 		class="absolute right-2 top-3 rounded-full p-1 transition-colors hover:bg-black hover:bg-opacity-10"
 		><div class="h-5 w-5"><CrossIcon /></div></button
 	>
-	<p class="mr-7 whitespace-pre text-pretty">{message}</p>
+	<p class="mr-7 whitespace-pre text-wrap">{message}</p>
 	<div
 		class="absolute bottom-0 left-0 h-1 bg-zinc-900"
 		style={`width: ${(1 - progress.current) * 100}%`}
