@@ -30,7 +30,7 @@
 <div>
 	<span class="text-center font-serif opacity-60 md:text-xl">
 		<p class="font-extrabold">축하의 마음 전하기</p>
-		<div class="my-6 space-y-2">
+		<div class="my-6 space-y-4">
 			{#each accounts as account}
 				<p>
 					{account.ownerName}

@@ -9,7 +9,7 @@
 
 <div class="fixed bottom-2 flex w-screen flex-col-reverse items-center space-y-2 space-y-reverse">
 	{#each toasts as toast (toast.id)}
-		<div in:fly animate:flip={{ duration: 150 }}>
+		<div in:fly={{ y: -20, duration: 200 }} animate:flip={{ duration: 150 }}>
 			<Toast {...toast} />
 		</div>
 	{/each}
