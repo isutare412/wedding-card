@@ -8,17 +8,17 @@
 		return () => {
 			// https://forums.developer.apple.com/forums/thread/691873
 			// Apple WebKit does not allow async.
-			if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-				navigator.clipboard
-					.write([
-						new ClipboardItem({
-							'text/plain': Promise.resolve(account)
-						})
-					])
-					.then(() => addCopyResultToast(name, account));
-			} else {
-				navigator.clipboard.writeText(account).then(() => addCopyResultToast(name, account));
-			}
+			// if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+			// 	navigator.clipboard
+			// 		.write([
+			// 			new ClipboardItem({
+			// 				'text/plain': Promise.resolve(account)
+			// 			})
+			// 		])
+			// 		.then(() => addCopyResultToast(name, account));
+			// } else {
+			navigator.clipboard.writeText(account).then(() => addCopyResultToast(name, account));
+			// }
 		};
 	}
 
