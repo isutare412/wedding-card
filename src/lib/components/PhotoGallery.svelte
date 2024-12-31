@@ -11,11 +11,17 @@
 	const { photos }: { photos: PhotoSet[] } = $props();
 
 	let swiper: Swiper;
+	let swiperIndex: number = $state(0);
 	let isPopupOpen = $state(false);
+	let isFirstSlide = $derived(swiperIndex === 0);
+	let isLastSlide = $derived(swiperIndex === photos.length - 1);
 
 	$effect(() => {
 		swiper = new Swiper('.swiper', {
 			modules: [Navigation, Pagination],
+			on: {
+				activeIndexChange: (swiper) => (swiperIndex = swiper.activeIndex)
+			},
 			spaceBetween: 30
 		});
 	});
@@ -93,44 +99,69 @@
 		class="fixed left-0 top-0 z-10 h-screen w-screen bg-black bg-opacity-80"
 		class:hidden={!isPopupOpen}
 	>
-		<!-- Slider main container -->
 		<div
-			class="swiper fixed left-1/2 top-1/2 h-full max-h-[80vh] w-full max-w-[90vw] -translate-x-1/2 -translate-y-[55%]"
+			role="dialog"
+			onclick={onClickOverlay}
+			class="fixed left-1/2 top-1/2 flex h-full max-h-[90vh] w-full max-w-[90vw] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-start"
 		>
-			<!-- Additional required wrapper -->
-			<div class="swiper-wrapper">
-				<!-- Slides -->
-				{#each photos as photo}
-					<div class="swiper-slide">
-						<img
-							alt="detailed wedding shot"
-							src={photo.full}
-							class="block h-full w-full object-contain"
-						/>
-					</div>
-				{/each}
-				...
+			<!-- Slider main container -->
+			<div class="swiper h-full max-h-[80vh] w-full max-w-[90vw]">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
+					<!-- Slides -->
+					{#each photos as photo}
+						<div class="swiper-slide">
+							<img
+								alt="detailed wedding shot"
+								src={photo.full}
+								class="block h-full w-full object-contain"
+							/>
+						</div>
+					{/each}
+				</div>
 			</div>
-		</div>
 
-		<div
-			class="fixed bottom-[4%] left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center space-x-8 text-zinc-400 transition-colors"
-		>
-			<button onclick={onClickPrevButton}>
-				<div class="flex h-10 w-10 items-center justify-center rounded-full hover:text-zinc-200">
-					<div class="h-5 w-5 -translate-x-1 md:h-7 md:w-7"><ArrowIconThick /></div>
-				</div>
-			</button>
-			<button onclick={onClickNextButton}>
-				<div class="flex h-10 w-10 items-center justify-center rounded-full hover:text-zinc-200">
-					<div class="h-5 w-5 translate-x-0 rotate-180 md:h-7 md:w-7"><ArrowIconThick /></div>
-				</div>
-			</button>
-			<button onclick={onClickCloseButton}>
-				<div class="flex h-10 w-10 items-center justify-center rounded-full hover:text-zinc-200">
-					<div class="h-4 w-4 md:h-6 md:w-6"><CrossIconThick /></div>
-				</div>
-			</button>
+			<div
+				class="absolute bottom-4 z-10 flex items-center justify-center text-zinc-200 transition-colors md:bottom-[4%] md:space-x-8"
+			>
+				<button
+					onclick={onClickPrevButton}
+					class="hidden outline-none md:inline-block"
+					disabled={isFirstSlide}
+					class:opacity-60={isFirstSlide}
+				>
+					<div
+						class:hover:bg-zinc-600={!isFirstSlide}
+						class:hover:text-zinc-50={!isFirstSlide}
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-900 md:h-11 md:w-11"
+					>
+						<div class="h-5 w-5 -translate-x-[2px]"><ArrowIconThick /></div>
+					</div>
+				</button>
+				<button
+					onclick={onClickNextButton}
+					class="hidden outline-none md:inline-block"
+					disabled={isLastSlide}
+					class:opacity-60={isLastSlide}
+				>
+					<div
+						class:hover:bg-zinc-600={!isLastSlide}
+						class:hover:text-zinc-50={!isLastSlide}
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-900 md:h-11 md:w-11"
+					>
+						<div class="h-5 w-5 translate-x-[2px] rotate-180">
+							<ArrowIconThick />
+						</div>
+					</div>
+				</button>
+				<button onclick={onClickCloseButton}>
+					<div
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-900 outline-none hover:bg-zinc-600 hover:text-zinc-50 md:h-11 md:w-11"
+					>
+						<div class="h-4 w-4"><CrossIconThick /></div>
+					</div>
+				</button>
+			</div>
 		</div>
 	</div>
 </div>
