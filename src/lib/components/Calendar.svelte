@@ -34,7 +34,7 @@
 							<td>
 								<div
 									class="mx-auto flex h-8 w-8 items-center justify-center rounded-full"
-									class:opacity-60={!d.isWeddingDay}
+									class:opacity-50={!d.isWeddingDay}
 									class:bg-red-100={d.isWeddingDay}
 									class:font-bold={d.isWeddingDay}
 									class:text-red-500={d.isWeddingDay}
