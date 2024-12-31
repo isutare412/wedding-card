@@ -40,7 +40,9 @@
 									class:text-red-500={d.isWeddingDay}
 								>
 									<div class="h-min w-min">
-										{d.date}
+										<span class="align-middle leading-none">
+											{d.date}
+										</span>
 									</div>
 								</div>
 							</td>
