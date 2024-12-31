@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ArrowIconThick from '$lib/components/icons/ArrowIconThick.svelte';
+	import CrossIconThick from '$lib/components/icons/CrossIconThick.svelte';
 	import type { PhotoSet } from '$lib/photo';
 	import Swiper from 'swiper';
 	import 'swiper/css';
@@ -14,15 +16,6 @@
 	$effect(() => {
 		swiper = new Swiper('.swiper', {
 			modules: [Navigation, Pagination],
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev'
-			},
-			pagination: {
-				el: '.swiper-pagination',
-				type: 'bullets',
-				clickable: true
-			},
 			spaceBetween: 30
 		});
 	});
@@ -37,15 +30,39 @@
 			currentTarget: EventTarget & Document;
 		}
 	) {
-		if (isPopupOpen && event.key === 'Escape') {
-			isPopupOpen = false;
-			return;
+		if (isPopupOpen) {
+			if (event.key === 'Escape') {
+				isPopupOpen = false;
+				return;
+			}
+
+			if (event.key === 'ArrowLeft') {
+				swiper.slidePrev();
+				return;
+			}
+
+			if (event.key === 'ArrowRight') {
+				swiper.slideNext();
+				return;
+			}
 		}
 	}
 
-	function onOverlayClick(event: MouseEvent) {
+	function onClickOverlay(event: MouseEvent) {
 		if (event.target !== event.currentTarget) return;
 
+		isPopupOpen = false;
+	}
+
+	function onClickNextButton(event: MouseEvent) {
+		swiper.slideNext();
+	}
+
+	function onClickPrevButton(event: MouseEvent) {
+		swiper.slidePrev();
+	}
+
+	function onClickCloseButton(event: MouseEvent) {
 		isPopupOpen = false;
 	}
 </script>
@@ -72,19 +89,19 @@
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<div
 		role="dialog"
-		onclick={onOverlayClick}
+		onclick={onClickOverlay}
 		class="fixed left-0 top-0 z-10 h-screen w-screen bg-black bg-opacity-80"
 		class:hidden={!isPopupOpen}
 	>
 		<!-- Slider main container -->
 		<div
-			class="swiper fixed left-1/2 top-1/2 h-full max-h-[70vh] w-full max-w-[90vw] -translate-x-1/2 -translate-y-1/2 md:max-h-[80vh] md:max-w-[60vw]"
+			class="swiper fixed left-1/2 top-1/2 h-full max-h-[80vh] w-full max-w-[90vw] -translate-x-1/2 -translate-y-[55%]"
 		>
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<!-- Slides -->
 				{#each photos as photo}
-					<div class="swiper-slide bg-white">
+					<div class="swiper-slide">
 						<img
 							alt="detailed wedding shot"
 							src={photo.full}
@@ -94,33 +111,27 @@
 				{/each}
 				...
 			</div>
-			<!-- If we need pagination -->
-			<div class="swiper-pagination"></div>
-
-			<!-- If we need navigation buttons -->
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
 		</div>
 
-		<!-- <swiper-container
-			bind:this={swiperElement}
-			navigation="true"
-			pagination="true"
-			pagination-clickable="true"
-			space-between="30"
-			keyboard-enabled="true"
-			class="fixed left-1/2 top-1/2 h-full max-h-[70vh] w-full max-w-[90vw] -translate-x-1/2 -translate-y-1/2 md:max-h-[80vh] md:max-w-[60vw]"
+		<div
+			class="fixed bottom-[4%] left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center space-x-8 text-zinc-400 transition-colors"
 		>
-			{#each photos as photo}
-				<swiper-slide class="bg-white">
-					<img
-						alt="detailed wedding shot"
-						src={photo.full}
-						class="block h-full w-full object-contain"
-					/>
-				</swiper-slide>
-			{/each}
-		</swiper-container> -->
+			<button onclick={onClickPrevButton}>
+				<div class="flex h-10 w-10 items-center justify-center rounded-full hover:text-zinc-200">
+					<div class="h-5 w-5 -translate-x-1 md:h-7 md:w-7"><ArrowIconThick /></div>
+				</div>
+			</button>
+			<button onclick={onClickNextButton}>
+				<div class="flex h-10 w-10 items-center justify-center rounded-full hover:text-zinc-200">
+					<div class="h-5 w-5 translate-x-0 rotate-180 md:h-7 md:w-7"><ArrowIconThick /></div>
+				</div>
+			</button>
+			<button onclick={onClickCloseButton}>
+				<div class="flex h-10 w-10 items-center justify-center rounded-full hover:text-zinc-200">
+					<div class="h-4 w-4 md:h-6 md:w-6"><CrossIconThick /></div>
+				</div>
+			</button>
+		</div>
 	</div>
 </div>
 
