@@ -163,6 +163,14 @@
 		]
 	} satisfies CenterTextData;
 
+	const scheduleTextData = {
+		paragraphs: [
+			{
+				subTitle: '2025년 3월 30일 일요일 낮 12시 30분\n아펠가모 반포 LL층 단독홀'
+			}
+		]
+	} satisfies CenterTextData;
+
 	const locationTextData = {
 		title: 'LOCATION',
 		paragraphs: [
@@ -274,7 +282,10 @@
 	<div class="mt-14">
 		<Family {...familyNames} />
 	</div>
-	<div class="mt-28">
+	<div class="mt-20">
+		<CenterText textData={scheduleTextData} />
+	</div>
+	<div class="mt-24">
 		<Calendar weddingDate={new Date(2025, 2, 30)} />
 	</div>
 	<div class="mt-20">

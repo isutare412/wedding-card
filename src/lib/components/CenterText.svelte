@@ -4,14 +4,16 @@
 	const { textData }: { textData: CenterTextData } = $props();
 </script>
 
-{#snippet titleParagraph(input: { title?: string; body: string })}
+{#snippet titleParagraph(input: { title?: string; body?: string })}
 	<div class="flex flex-col space-y-1">
 		{#if input.title !== undefined}
-			<p class="font-extrabold">{input.title}</p>
+			<p class="font-bold">{input.title}</p>
 		{/if}
-		<p>
-			{input.body}
-		</p>
+		{#if input.body !== undefined}
+			<p>
+				{input.body}
+			</p>
+		{/if}
 	</div>
 {/snippet}
 
