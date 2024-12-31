@@ -233,7 +233,7 @@
 	const wreathTextData = {
 		paragraphs: [
 			{
-				subTitle: '축하 화환안내',
+				subTitle: '축하화환 안내',
 				body: '화환은 정중히 사양합니다.\n좋은 마음만 감사히 받겠습니다.'
 			}
 		]

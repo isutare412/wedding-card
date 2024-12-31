@@ -19,7 +19,7 @@
 <div>
 	<span class="font-serif opacity-70 md:text-xl">
 		<p class="text-center font-bold tracking-wider">축하의 마음 전하기</p>
-		<div class="mx-auto my-6 w-fit">
+		<div class="mx-auto my-4 w-fit">
 			<table class="table-auto border-separate border-spacing-x-2 border-spacing-y-1">
 				{#each accounts as account}
 					<tbody>
