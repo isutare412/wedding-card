@@ -19,7 +19,7 @@
 
 <div>
 	<div
-		class="flex flex-col space-y-6 whitespace-pre-line px-2 text-center font-serif leading-loose opacity-60 md:text-xl md:leading-loose"
+		class="flex flex-col space-y-6 whitespace-pre-line px-2 text-center font-serif leading-loose opacity-70 md:text-xl md:leading-loose"
 	>
 		{#if textData.title !== undefined}
 			<p class="font-extrabold tracking-wider">{textData.title}</p>
