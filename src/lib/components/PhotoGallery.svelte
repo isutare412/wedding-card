@@ -77,6 +77,14 @@
 	{#each photos as photo}
 		<link rel="prefetch" href={photo.full} />
 	{/each}
+
+	{#if isPopupOpen}
+		<style>
+			body {
+				overflow: hidden;
+			}
+		</style>
+	{/if}
 </svelte:head>
 
 <svelte:document onkeyup={onDocumentKeyup} />
@@ -102,10 +110,10 @@
 		<div
 			role="dialog"
 			onclick={onClickOverlay}
-			class="fixed left-1/2 top-1/2 flex h-full max-h-[90vh] w-full max-w-[90vw] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-start"
+			class="fixed left-1/2 top-1/2 flex h-full max-h-[80vh] w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center space-y-4 px-4 md:max-h-[90vh]"
 		>
 			<!-- Slider main container -->
-			<div class="swiper h-full max-h-[80vh] w-full max-w-[90vw]">
+			<div class="swiper h-full w-full">
 				<!-- Additional required wrapper -->
 				<div class="swiper-wrapper">
 					<!-- Slides -->
@@ -121,12 +129,10 @@
 				</div>
 			</div>
 
-			<div
-				class="absolute bottom-4 z-10 flex items-center justify-center text-zinc-200 transition-colors md:bottom-[4%] md:space-x-8"
-			>
+			<div class="z-10 flex items-center justify-center space-x-4 text-zinc-200 transition-colors">
 				<button
 					onclick={onClickPrevButton}
-					class="hidden outline-none md:inline-block"
+					class="outline-none"
 					disabled={isFirstSlide}
 					class:opacity-60={isFirstSlide}
 				>
@@ -140,7 +146,7 @@
 				</button>
 				<button
 					onclick={onClickNextButton}
-					class="hidden outline-none md:inline-block"
+					class="outline-none"
 					disabled={isLastSlide}
 					class:opacity-60={isLastSlide}
 				>
@@ -173,6 +179,6 @@
 	}
 
 	div.swiper {
-		position: fixed;
+		position: static;
 	}
 </style>
