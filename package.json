@@ -13,6 +13,8 @@
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
+		"@fontsource/arvo": "^5.1.1",
+		"@fontsource/nanum-myeongjo": "^5.1.1",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/adapter-vercel": "^5.5.2",
 		"@sveltejs/enhanced-img": "^0.4.1",
