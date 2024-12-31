@@ -6,19 +6,7 @@
 
 	function onClickCopyButton(name: string, account: string): () => void {
 		return () => {
-			// https://forums.developer.apple.com/forums/thread/691873
-			// Apple WebKit does not allow async.
-			// if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-			// 	navigator.clipboard
-			// 		.write([
-			// 			new ClipboardItem({
-			// 				'text/plain': Promise.resolve(account)
-			// 			})
-			// 		])
-			// 		.then(() => addCopyResultToast(name, account));
-			// } else {
 			navigator.clipboard.writeText(account).then(() => addCopyResultToast(name, account));
-			// }
 		};
 	}
 
@@ -29,7 +17,7 @@
 
 <div>
 	<span class="text-center font-serif opacity-60 md:text-xl">
-		<p class="font-extrabold">축하의 마음 전하기</p>
+		<p class="font-extrabold tracking-wider">축하의 마음 전하기</p>
 		<div class="my-6 space-y-4">
 			{#each accounts as account}
 				<p>

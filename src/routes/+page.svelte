@@ -24,6 +24,7 @@
 	} from '$env/static/public';
 	import type { AccountData } from '$lib/account';
 	import BankAccount from '$lib/components/BankAccount.svelte';
+	import Calendar from '$lib/components/Calendar.svelte';
 	import CenterText from '$lib/components/CenterText.svelte';
 	import CoupleName from '$lib/components/CoupleName.svelte';
 	import Family from '$lib/components/Family.svelte';
@@ -261,7 +262,7 @@
 	<div class="my-14">
 		<CoupleName brideName={coupleNames.bride} groomName={coupleNames.groom} />
 	</div>
-	<div>
+	<div class="my-20">
 		<FlowerBand />
 	</div>
 	<div class="mt-20">
@@ -274,6 +275,9 @@
 		<Family {...familyNames} />
 	</div>
 	<div class="mt-28">
+		<Calendar weddingDate={new Date(2025, 2, 30)} />
+	</div>
+	<div class="mt-20">
 		<CenterText textData={locationTextData} />
 	</div>
 	<div class="mt-10">
@@ -282,16 +286,16 @@
 	<div class="mt-12">
 		<CenterText textData={transportationTextData} />
 	</div>
-	<div class="my-36">
+	<div class="my-32">
 		<FlowerBand />
 	</div>
-	<div class="my-14">
+	<div class="my-10">
 		<BankAccount {accounts} />
 	</div>
-	<div class="my-32">
+	<div class="my-24">
 		<CenterText textData={wreathTextData} />
 	</div>
-	<div class="my-36">
+	<div class="my-24">
 		<FlowerBand />
 	</div>
 	<div class="my-12">
