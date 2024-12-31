@@ -141,8 +141,8 @@
 	};
 
 	const coupleNames = {
-		bride: `${PUBLIC_GROOM_FULL_NAME}`,
-		groom: `${PUBLIC_BRIDE_FULL_NAME}`
+		bride: `${PUBLIC_BRIDE_FULL_NAME}`,
+		groom: `${PUBLIC_GROOM_FULL_NAME}`
 	};
 
 	const familyNames = {
