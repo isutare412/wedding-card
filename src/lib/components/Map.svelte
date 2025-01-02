@@ -50,7 +50,7 @@
 
 {#snippet mapLinkButton(imageSrc: string, text: string)}
 	<img alt="Map icon" src={imageSrc} class="inline-block h-4" /><span
-		class="ml-1 inline-block text-sm opacity-70">{text}</span
+		class="ml-1 inline-block text-sm text-gray-600">{text}</span
 	>
 {/snippet}
 

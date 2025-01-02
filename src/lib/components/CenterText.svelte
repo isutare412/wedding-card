@@ -19,7 +19,7 @@
 
 <div>
 	<span
-		class="whitespace-pre-line text-center font-serif leading-loose opacity-70 md:text-xl md:leading-loose"
+		class="whitespace-pre-line text-center font-serif leading-loose text-gray-600 md:text-xl md:leading-loose"
 	>
 		<div class="flex flex-col space-y-6 px-2">
 			{#if textData.title !== undefined}
