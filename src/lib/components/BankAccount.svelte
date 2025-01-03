@@ -1,9 +1,8 @@
 <script lang="ts">
 	import type { AccountData } from '$lib/account';
-	import CopyIcon from '$lib/components/icons/CopyIcon.svelte';
 	import { addToast } from '$lib/states/toast-state.svelte';
 
-	const { accounts }: { accounts: AccountData[] } = $props();
+	const { accounts }: { accounts: AccountData[][] } = $props();
 
 	function onClickCopyButton(name: string, account: string): () => void {
 		return () => {
@@ -19,32 +18,32 @@
 <div>
 	<span class="font-serif text-gray-600 md:text-xl">
 		<p class="text-center font-bold tracking-wider">축하의 마음 전하기</p>
-		<div class="mx-auto my-4 w-fit">
-			<table class="table-auto border-separate border-spacing-x-2 border-spacing-y-1">
-				{#each accounts as account}
-					<tbody>
-						<tr>
-							<td><span class="align-middle">{account.ownerName}</span></td>
-							<td><span class="align-middle">{account.bank}</span></td>
-							<td><span class="align-middle">{account.number}</span></td>
-							<td class="flex items-center justify-center">
+		<div class="mx-auto my-8 w-full max-w-md px-6">
+			{#each accounts as group, i}
+				<div class="space-y-4">
+					{#each group as account}
+						<div class="flex flex-auto justify-between gap-x-1">
+							<div class="space-y-2">
+								<div class="font-bold">{account.ownerName}</div>
+								<div class="flex justify-start gap-x-2">
+									<div class="shrink-0">{account.bank}</div>
+									<div>{account.number}</div>
+								</div>
+							</div>
+							<div>
 								<button
 									onclick={onClickCopyButton(account.ownerName, account.number)}
-									class="rounded-md pl-1 hover:bg-black hover:bg-opacity-10"
+									class="h-full w-20 rounded-md bg-zinc-300 font-bold outline-none transition-colors hover:bg-zinc-400 hover:text-gray-100"
+									>복사</button
 								>
-									<div class="inline-block h-5 w-5 -translate-y-[1px] align-middle">
-										<CopyIcon />
-									</div>
-									<span
-										class="inline-block -translate-x-[5px] align-middle text-sm font-bold tracking-tight"
-										>복사</span
-									>
-								</button>
-							</td>
-						</tr>
-					</tbody>
-				{/each}
-			</table>
+							</div>
+						</div>
+					{/each}
+				</div>
+				{#if i != accounts.length - 1}
+					<div class="my-5 h-0.5 w-full bg-zinc-300"></div>
+				{/if}
+			{/each}
 		</div>
 	</span>
 </div>
