@@ -1,20 +1,22 @@
 <script lang="ts">
+	import { PUBLIC_CDN_BASE } from '$env/static/public';
+
 	const flowerImages = [
 		{
-			src: 'https://dmdi76qgv3i4f.cloudfront.net/miscs/flower-1.png'
+			src: `${PUBLIC_CDN_BASE}/miscs/flower-1.png`,
 		},
 		{
-			src: 'https://dmdi76qgv3i4f.cloudfront.net/miscs/flower-2.png'
+			src: `${PUBLIC_CDN_BASE}/miscs/flower-2.png`,
 		},
 		{
-			src: 'https://dmdi76qgv3i4f.cloudfront.net/miscs/flower-3.png'
+			src: `${PUBLIC_CDN_BASE}/miscs/flower-3.png`,
 		},
 		{
-			src: 'https://dmdi76qgv3i4f.cloudfront.net/miscs/flower-4.png'
+			src: `${PUBLIC_CDN_BASE}/miscs/flower-4.png`,
 		},
 		{
-			src: 'https://dmdi76qgv3i4f.cloudfront.net/miscs/flower-5.png'
-		}
+			src: `${PUBLIC_CDN_BASE}/miscs/flower-5.png`,
+		},
 	];
 </script>
 

@@ -4,8 +4,6 @@
 	import type { PhotoSet } from '$lib/photo';
 	import Swiper from 'swiper';
 	import 'swiper/css';
-	import 'swiper/css/navigation';
-	import 'swiper/css/pagination';
 	import { Navigation, Pagination } from 'swiper/modules';
 
 	const { photos }: { photos: PhotoSet[] } = $props();
@@ -20,9 +18,9 @@
 		swiper = new Swiper('.swiper', {
 			modules: [Navigation, Pagination],
 			on: {
-				activeIndexChange: (swiper) => (swiperIndex = swiper.activeIndex)
+				activeIndexChange: (swiper) => (swiperIndex = swiper.activeIndex),
 			},
-			spaceBetween: 30
+			spaceBetween: 30,
 		});
 	});
 
@@ -173,11 +171,6 @@
 </div>
 
 <style>
-	:root {
-		--swiper-navigation-color: rgb(75, 79, 70);
-		--swiper-pagination-color: rgb(75, 79, 70);
-	}
-
 	div.swiper {
 		position: static;
 	}
