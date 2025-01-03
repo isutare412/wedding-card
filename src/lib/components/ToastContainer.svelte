@@ -7,9 +7,13 @@
 	let toasts = $derived(toastState.toasts);
 </script>
 
-<div class="fixed bottom-2 flex w-screen flex-col-reverse items-center space-y-2 space-y-reverse">
+<div class="fixed bottom-2 flex w-screen flex-col-reverse items-center gap-y-2">
 	{#each toasts as toast (toast.id)}
-		<div in:fly={{ y: -20, duration: 200 }} animate:flip={{ duration: 150 }}>
+		<div
+			in:fly={{ y: -20, duration: 200 }}
+			out:fly={{ y: 20, duration: 200 }}
+			animate:flip={{ duration: 200 }}
+		>
 			<Toast {...toast} />
 		</div>
 	{/each}

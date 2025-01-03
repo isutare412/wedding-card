@@ -5,7 +5,7 @@
 </script>
 
 {#snippet titleParagraph(input: { title?: string; body?: string })}
-	<div class="flex flex-col space-y-1">
+	<div class="flex flex-col gap-y-1">
 		{#if input.title !== undefined}
 			<p class="font-bold">{input.title}</p>
 		{/if}
@@ -21,7 +21,7 @@
 	<span
 		class="whitespace-pre-line text-center font-serif leading-loose text-gray-600 md:text-xl md:leading-loose"
 	>
-		<div class="flex flex-col space-y-6 px-2">
+		<div class="flex flex-col gap-y-6 px-2">
 			{#if textData.title !== undefined}
 				<p class="font-extrabold tracking-wider">{textData.title}</p>
 			{/if}

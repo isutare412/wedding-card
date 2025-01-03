@@ -110,7 +110,7 @@
 		<div
 			role="dialog"
 			onclick={onClickOverlay}
-			class="fixed left-1/2 top-1/2 flex h-full max-h-[80vh] w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center space-y-4 px-4 md:max-h-[90vh]"
+			class="fixed left-1/2 top-1/2 flex h-full max-h-[80vh] w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-y-4 px-4 md:max-h-[90vh]"
 		>
 			<!-- Slider main container -->
 			<div class="swiper h-full w-full">
@@ -129,7 +129,7 @@
 				</div>
 			</div>
 
-			<div class="z-10 flex items-center justify-center space-x-4 text-zinc-200 transition-colors">
+			<div class="z-10 flex items-center justify-center gap-x-4 text-zinc-200 transition-colors">
 				<button
 					onclick={onClickPrevButton}
 					class="outline-none"
