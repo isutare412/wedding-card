@@ -33,7 +33,7 @@
 							<div class="h-11 w-16 md:text-base">
 								<button
 									onclick={onClickCopyButton(account.ownerName, account.number)}
-									class="h-full w-full rounded-md bg-zinc-300 font-bold outline-none transition-colors hover:bg-zinc-400 hover:text-gray-100"
+									class="h-full w-full rounded-md bg-zinc-200 font-bold outline-none transition-colors hover:bg-zinc-300"
 									>복사</button
 								>
 							</div>
@@ -41,7 +41,7 @@
 					{/each}
 				</div>
 				{#if i != accounts.length - 1}
-					<div class="my-5 h-0.5 w-full bg-zinc-300"></div>
+					<div class="my-5 h-0.5 w-full bg-zinc-200"></div>
 				{/if}
 			{/each}
 		</div>
