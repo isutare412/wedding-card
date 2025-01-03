@@ -15,7 +15,7 @@
 <div class="mx-auto w-full max-w-lg px-4">
 	<span class="text-center font-serif md:text-lg">
 		<p class="font-extrabold tracking-wider text-gray-600 md:text-xl">CALENDAR</p>
-		<table class="mt-12 w-full table-fixed">
+		<table class="mt-8 w-full table-fixed">
 			<thead>
 				<tr class="h-12">
 					<th class="text-red-500">일</th>
