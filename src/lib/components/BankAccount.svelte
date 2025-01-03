@@ -22,15 +22,15 @@
 			{#each accounts as group, i}
 				<div class="space-y-4">
 					{#each group as account}
-						<div class="flex flex-auto items-stretch justify-between gap-x-1">
-							<div class="space-y-2">
+						<div class="flex flex-auto items-center justify-between gap-x-1">
+							<div class="space-y-1">
 								<div class="font-bold">{account.ownerName}</div>
 								<div class="flex justify-start gap-x-2">
 									<div class="shrink-0">{account.bank}</div>
 									<div>{account.number}</div>
 								</div>
 							</div>
-							<div class="w-24">
+							<div class="h-11 w-16 md:text-base">
 								<button
 									onclick={onClickCopyButton(account.ownerName, account.number)}
 									class="h-full w-full rounded-md bg-zinc-300 font-bold outline-none transition-colors hover:bg-zinc-400 hover:text-gray-100"
